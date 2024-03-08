@@ -213,9 +213,11 @@
     gnome.dconf-editor
     gnomeExtensions.wallpaper-slideshow
     gnomeExtensions.tray-icons-reloaded
-    (pkgs.writeShellScriptBin "reload" ''
+    (pkgs.writeShellScriptBin "rebuild" ''
     pushd /etc/nixos
     git diff -U0 *.nix
+    git commit -am $(nix-env -p /nix/var/nix/profiles/system --list-generations | grep current | awk '{print "gen-" $1 ":" $2}')
+    nixos-rebuild switch --flake /etc/nixos/flake.nix#nixos
     popd
     '')
   ];
