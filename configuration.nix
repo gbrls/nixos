@@ -207,7 +207,11 @@
     google-chrome
     gparted
 
+    gnome.gnome-tweaks
+    gnome.dconf-editor
     gnomeExtensions.wallpaper-slideshow
+    gnomeExtensions.tray-icons-reloaded
+
   ];
 
   # QEMU virtualization config

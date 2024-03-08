@@ -50,9 +50,7 @@
                 nixvim.homeManagerModules.nixvim
                   (import ./vim.nix { inherit pkgs; })
               ];
-              home.packages = [ 
-                pkgs.gnomeExtensions.tray-icons-reloaded
-              ];
+              home.packages = [ ];
               programs.git = {
                 enable = true;
                 userName = "Gabriel Schneider";
