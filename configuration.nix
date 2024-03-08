@@ -141,9 +141,6 @@
 
   # -> shell configurations <-
 
-  pkgs.writeShellScriptBin "reload" ''
-  echo $0
-  '';
 
   environment.shellAliases = {
     ls = "eza --icons";
@@ -216,6 +213,8 @@
     gnome.dconf-editor
     gnomeExtensions.wallpaper-slideshow
     gnomeExtensions.tray-icons-reloaded
+    pkgs.writeShellScriptBin "reload" ''echo HELLO '';
+
 
   ];
 
