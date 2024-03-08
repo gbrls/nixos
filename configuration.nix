@@ -197,7 +197,6 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
 
-    #TODO: maybe keep the cli tools in a seperate file or something?
     eza
     jq
     neovim
