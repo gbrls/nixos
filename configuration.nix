@@ -213,7 +213,11 @@
     gnome.dconf-editor
     gnomeExtensions.wallpaper-slideshow
     gnomeExtensions.tray-icons-reloaded
-    (pkgs.writeShellScriptBin "reload" ''echo HELLO '')
+    (pkgs.writeShellScriptBin "reload" ''
+    pushd /etc/nixos
+    git diff -U0 *.nix
+    popd
+    '')
   ];
 
   # QEMU virtualization config
