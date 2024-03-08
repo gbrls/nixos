@@ -141,10 +141,15 @@
 
   # -> shell configurations <-
 
+  pkgs.writeShellScriptBin "reload" ''
+  echo $0
+  '';
+
   environment.shellAliases = {
     ls = "eza --icons";
     ll = "ls -la";
   };
+
 
   users.defaultUserShell = pkgs.zsh;
 

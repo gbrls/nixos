@@ -37,6 +37,7 @@
       { action = "require('telescope.builtin').oldfiles"; key = "<leader>fh"; lua = true; options.desc = "File History"; }
       { action = "require('telescope.builtin').lsp_dynamic_workspace_symbols"; key = "<leader>ft"; lua = true; options.desc = "Tags"; }
       { action = "require('telescope.builtin').quickfix"; key = "<leader>q"; lua = true; options.desc = "Quickfixlist"; }
+      # Hey I'm a comment here
     ];
     colorschemes.gruvbox.enable = true;
     globals.mapleader = " ";
