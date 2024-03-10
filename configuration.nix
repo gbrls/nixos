@@ -213,6 +213,7 @@
     gnomeExtensions.wallpaper-slideshow
     gnomeExtensions.tray-icons-reloaded
     (pkgs.writeShellScriptBin "rebuild" ''
+    sudo su
     pushd /etc/nixos
     git diff -U0 *.nix
     git commit -am $(nix-env -p /nix/var/nix/profiles/system --list-generations | grep current | awk '{print "gen-" $1 ":" $2}')

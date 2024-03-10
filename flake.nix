@@ -89,7 +89,7 @@
 
               programs.kitty = {
                 enable = true;
-                theme = "Constant Perceptual Luminosity";
+                theme = "Everforest Dark Hard";
                 font = {
                   name = "Victor Mono";
                   size = 16.0;
