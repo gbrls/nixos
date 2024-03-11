@@ -55,6 +55,11 @@
     layout = "us";
     xkbVariant = "";
   };
+  services.udev = {
+    extraRules = ''
+      SUBSYSTEM=="usbmon", GROUP="wireshark", MODE="0640"
+    '';
+  };
 
   # Enable OpenGL
   hardware.opengl = {
