@@ -11,6 +11,7 @@
       lsp = {
         enable = true;
         servers.rust-analyzer = { enable = true; installRustc = false; installCargo = false; };
+        servers.nil_ls.enable = true;
       };
       nvim-cmp = {
         enable = true;
