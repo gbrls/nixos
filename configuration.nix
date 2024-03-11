@@ -214,7 +214,10 @@
     gnomeExtensions.wallpaper-slideshow
     gnomeExtensions.tray-icons-reloaded
     (pkgs.writeShellScriptBin "rebuild" ''
-    sudo su
+    if [ "$(id -u)" -ne 0 ]; then
+        echo 'This script must be run by root' >&2
+        exit 1
+    fi
     pushd /etc/nixos
     git diff -U0 *.nix
     git commit -am $(nix-env -p /nix/var/nix/profiles/system --list-generations | grep current | awk '{print "gen-" $1 ":" $2}')
