@@ -26,6 +26,9 @@
       };
     };
     keymaps = [
+      { mode = "t"; action = "<C-\\><C-n>"; key = "<esc>"; lua = true; options.desc = "Terminal Escape remap"; }
+      { action = "ToggleTerm"; key = "<leader>ot"; options.desc = "Open Terminal"; }
+
       # LSP
       { action = "vim.lsp.buf.hover"; key = "K"; lua = true; options.desc = "Hover"; }
       { action = "vim.lsp.buf.rename"; key = "<leader>lr"; lua = true; options.desc = "Rename"; } 
