@@ -8,7 +8,7 @@
       gitsigns.enable = true;
       which-key.enable = true;
       surround.enable = true;
-      toggleterm = { enable = true; direction = "vertical"; };
+      toggleterm = { enable = true; direction = "vertical"; size = 60; };
       lsp = {
         enable = true;
         servers.rust-analyzer = { enable = true; installRustc = false; installCargo = false; };
@@ -28,7 +28,7 @@
     keymaps = [
       # Terminal
       { mode = "t"; action = ''[[<C-\><C-n>]]''; key = "<esc>"; lua = true; options.desc = "Terminal Escape remap"; }
-      { action = "require('toggleterm').toggle(0)"; key = "<leader>ot"; lua = true; options.desc = "Open Terminal"; }
+      { action = "function() return require('toggleterm').toggle(0) end"; key = "<leader>ot"; lua = true; options.desc = "Open Terminal"; }
 
       # LSP
       { action = "vim.lsp.buf.hover"; key = "K"; lua = true; options.desc = "Hover"; }
