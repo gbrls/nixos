@@ -8,7 +8,7 @@
       gitsigns.enable = true;
       which-key.enable = true;
       surround.enable = true;
-      toggleterm = { enable = true; direction = "vertical"; size = 60; };
+      toggleterm = { enable = true; direction = "vertical"; size = 100; };
       lsp = {
         enable = true;
         servers.rust-analyzer = { enable = true; installRustc = false; installCargo = false; };
