@@ -211,6 +211,7 @@
     bat
     ripgrep
     ripgrep-all
+    neofetch
 
     wireshark
 
