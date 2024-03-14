@@ -26,8 +26,9 @@
       };
     };
     keymaps = [
+      # Terminal
       { mode = "t"; action = ''[[<C-\><C-n>]]''; key = "<esc>"; lua = true; options.desc = "Terminal Escape remap"; }
-      { action = "ToggleTerm"; key = "<leader>ot"; options.desc = "Open Terminal"; }
+      { action = "require('toggleterm').toggle(0)"; key = "<leader>ot"; lua = true; options.desc = "Open Terminal"; }
 
       # LSP
       { action = "vim.lsp.buf.hover"; key = "K"; lua = true; options.desc = "Hover"; }
