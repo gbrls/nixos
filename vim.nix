@@ -14,7 +14,10 @@
         servers.rust-analyzer = { enable = true; installRustc = false; installCargo = false; };
         servers.nil_ls.enable = true;
       };
+      luasnip.enable = true;
+      cmp_luasnip.enable = true;
       nvim-cmp = {
+        snippet.expand = "luasnip";
         enable = true;
         sources =
           [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
