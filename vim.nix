@@ -54,7 +54,10 @@
       { action = "require('telescope.builtin').lsp_dynamic_workspace_symbols"; key = "<leader>ft"; lua = true; options.desc = "Tags"; }
       { action = "require('telescope.builtin').quickfix"; key = "<leader>q"; lua = true; options.desc = "Quickfixlist"; }
     ];
-    colorschemes.melange.enable = true;
+    colorschemes.melange = {
+      enable = true;
+      italic = false;
+    };
     globals.mapleader = " ";
     options = {
       number = true; relativenumber = true; scrolloff = 3;
