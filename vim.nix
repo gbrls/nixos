@@ -13,6 +13,7 @@
         enable = true;
         servers.rust-analyzer = { enable = true; installRustc = false; installCargo = false; };
         servers.nil_ls.enable = true;
+        display-inlay-hints = true;
       };
       luasnip.enable = true;
       cmp_luasnip.enable = true;
