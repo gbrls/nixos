@@ -33,6 +33,7 @@
         inlayHints = {
           auto = true;
         };
+      };
     };
     keymaps = [
       # Terminal
