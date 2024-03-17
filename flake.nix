@@ -87,6 +87,19 @@
                   '';
               };
 
+              xsession.windowManager.i3 = {
+                enable = true;
+                extraPackages = with pkgs; [
+                  dmenu 
+                    i3status 
+                    i3lock
+                    i3blocks
+                ];
+                config = {
+                  modifier = "Mod4";
+                };
+              };
+
               programs.kitty = {
                 enable = true;
                 theme = "Everforest Dark Hard";
