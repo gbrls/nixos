@@ -71,8 +71,8 @@
     };
     clipboard.register = "unnamedplus";
     clipboard.providers.xclip.enable = true;
-    autoCmd = [
-      { event = "FileType"; pattern = "nix"; command = "setlocal tabstop=2 shiftwidth=2"; }
-    ];
+    #autoCmd = [
+    #  { event = "FileType"; pattern = "nix"; command = "setlocal tabstop=2 shiftwidth=2"; }
+    #];
   };
 }
