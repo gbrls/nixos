@@ -41,20 +41,37 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.dpi = 240;
-  services.xserver.wacom.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
+  # X11 configuration
   services.xserver = {
+    enable = true;
+    wacom.enable = true;
+    libinput.enable = true;
+
     layout = "us";
     xkbVariant = "";
+
+    videoDrivers = ["nvidia"];
+    dpi = 240;
+
+    gdm.enable = true;
+    gnome.enable = true;
+    displayManager.autoLogin.enable = false;
+    displayManager.autoLogin.user = "gbrls";
+
+    # ==== i3wm specific configurations =========
+    desktopManager = { xterm.enable = false; };
+    displayManager = { defaultSession = "none+i3"; };
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu 
+        i3status 
+        i3lock
+        i3blocks
+     ];
+    };
   };
+
   services.udev = {
     extraRules = ''
       SUBSYSTEM=="usbmon", GROUP="wireshark", MODE="0640"
@@ -69,7 +86,6 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
 
@@ -119,9 +135,6 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
-
   system.autoUpgrade = {
     enable = true;
     flake = inputs.self.outPath;
@@ -147,12 +160,10 @@
 
   # -> shell configurations <-
 
-
   environment.shellAliases = {
     ls = "eza --icons";
     ll = "ls -la";
   };
-
 
   users.defaultUserShell = pkgs.zsh;
 
@@ -182,10 +193,6 @@
     ];
   };
 
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = false;
-  services.xserver.displayManager.autoLogin.user = "gbrls";
-
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
@@ -211,6 +218,7 @@
     ripgrep
     ripgrep-all
     neofetch
+    yazi
 
     wireshark
 
@@ -264,31 +272,6 @@
    services.openssh = {
      enable = true;
   };
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true; # so that gtk works properly
-    extraPackages = with pkgs; [
-      swaylock
-      swayidle
-      wl-clipboard
-      wf-recorder
-      mako # notification daemon
-      grim
-       #kanshi
-      slurp
-      alacritty # Alacritty is the default terminal in the config
-      dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
-    ];
-    extraSessionCommands = ''
-      export SDL_VIDEODRIVER=wayland
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      export _JAVA_AWT_WM_NONREPARENTING=1
-      export MOZ_ENABLE_WAYLAND=1
-    '';
-  };
-  programs.waybar.enable = true;
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

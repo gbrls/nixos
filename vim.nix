@@ -30,9 +30,7 @@
       rust-tools = {
         enable = true;
         reloadWorkspaceFromCargoToml = true;
-        inlayHints = {
-          auto = true;
-        };
+        inlayHints = { auto = true; };
       };
     };
     keymaps = [
