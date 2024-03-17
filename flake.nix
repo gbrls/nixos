@@ -48,8 +48,8 @@
 
             home-manager.users.gbrls = {
               imports = [
-                nixvim.homeManagerModules.nixvim
-                (import ./neovim.nix { pkgs = pkgs-unstable; })
+                #nixvim.homeManagerModules.nixvim
+                (import ./neovim.nix { pkgs = pkgs-unstable; neovim = nixvim.makeNixvimWithModule { pkgs = pkgs-unstable; }; })
               ];
               home.packages = [ ];
               programs.git = {
@@ -125,7 +125,7 @@
             home-manager.users.root = {
               imports = [
                 nixvim.homeManagerModules.nixvim
-                  (import ./vim.nix { inherit pkgs; })
+                  (import ./neovim.nix { inherit pkgs; })
               ];
               programs.git = {
                 enable = true;
