@@ -1,7 +1,6 @@
 { description = "gbrls's NixOS flake config";
 
   inputs = {
-# Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -87,10 +86,16 @@
                   '';
               };
 
-              xsession.windowManager.i3 = {
+              xsession.windowManager.i3 = 
+              let 
+                mod = "Mod4";
+              in {
                 enable = true;
                 config = {
-                  modifier = "Mod4";
+                  modifier = mod;
+                  keybindings = nixpkgs.lib.mkOptionDefault {
+                    "${mod}+d" = "exec ${pkgs.dmenu}/bin/dmenu_run";
+                  };
                 };
               };
 
