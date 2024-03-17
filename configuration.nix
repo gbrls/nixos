@@ -53,14 +53,18 @@
     videoDrivers = ["nvidia"];
     dpi = 240;
 
-    gdm.enable = true;
-    gnome.enable = true;
-    displayManager.autoLogin.enable = false;
-    displayManager.autoLogin.user = "gbrls";
+    desktopManager = { 
+      xterm.enable = false;
+      gnome.enable = true;
+    };
 
-    # ==== i3wm specific configurations =========
-    desktopManager = { xterm.enable = false; };
-    displayManager = { defaultSession = "none+i3"; };
+    displayManager = { 
+      gdm.enable = true;
+      defaultSession = "none+i3";
+      autoLogin.user = "gbrls";
+      autoLogin.enable = false;
+    };
+
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
