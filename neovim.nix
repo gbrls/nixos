@@ -32,7 +32,7 @@
         reloadWorkspaceFromCargoToml = true;
         inlayHints = { auto = true; };
       };
-      utils.obsidian = {
+      obsidian = {
         enable = true;
         workspaces = [
           { name = "journal"; path = "/home/gbrls/Dropbox (Maestral)/journal"; }
