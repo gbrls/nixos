@@ -47,7 +47,7 @@
             home-manager.useUserPackages = true;
 
             home-manager.users.gbrls = {
-              packages.neovim = inputs.nixvim.makeNixvimWithModule { pkgs = pkgs-unstable; };
+              packages.neovim = inputs.nixvim.legacyPackages.makeNixvimWithModule { pkgs = pkgs-unstable; };
 
               imports = [
                 #nixvim.homeManagerModules.nixvim
