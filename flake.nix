@@ -28,6 +28,7 @@
   inherit (self) outputs;
   system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${system};
+  pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
   in {
 # NixOS configuration entrypoint
 # Available through 'nixos-rebuild --flake .#your-hostname'
@@ -48,7 +49,7 @@
             home-manager.users.gbrls = {
               imports = [
                 nixvim.homeManagerModules.nixvim
-                (import ./neovim.nix { inherit pkgs; })
+                (import ./neovim.nix { pkgs = pkgs-unstable; })
               ];
               home.packages = [ ];
               programs.git = {
