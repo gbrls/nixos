@@ -48,15 +48,10 @@
 
             home-manager.users.gbrls = {
               imports = [
-                #nixvim.homeManagerModules.nixvim
+                nixvim.homeManagerModules.nixvim
                 (import ./neovim.nix { pkgs = pkgs-unstable;  })
               ];
-              home.packages = [ 
-                inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
-                  pkgs = pkgs-unstable;
-                  module = ./neovim.nix;
-                }
-              ];
+              home.packages = [ ];
               programs.git = {
                 enable = true;
                 userName = "Gabriel Schneider";
@@ -107,10 +102,8 @@
                     "${mod}+k" = "focus up";
                     "${mod}+l" = "focus right";
 
-                    "${mod}+Shift+1" = "move container to workspace 1";
-                    "${mod}+Shift+3" = "move container to workspace 2";
-                    "${mod}+Shift+h" = "move to workspace prev";
-                    "${mod}+Shift+l" = "move to workspace next";
+                    "${mod}+Shift+h" = "move to workspace left";
+                    "${mod}+Shift+l" = "move to workspace right";
                   };
                 };
               };

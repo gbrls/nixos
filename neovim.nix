@@ -1,8 +1,6 @@
-{pkgs, ...}:
+{...}:
 {
-  #programs.nixvim = {
-  #programs.neovim = {
-  config = {
+  programs.nixvim = {
     enable = true;
     plugins = {
       treesitter.enable = true;
@@ -34,12 +32,13 @@
         reloadWorkspaceFromCargoToml = true;
         inlayHints = { auto = true; };
       };
-      obsidian = {
-        enable = true;
-        workspaces = [
-          { name = "journal"; path = "/home/gbrls/Dropbox (Maestral)/journal"; }
-        ];
-      };
+      # not released for nixos-23.11, available only in unstable
+      #obsidian = {
+      #  enable = true;
+      #  workspaces = [
+      #    { name = "journal"; path = "/home/gbrls/Dropbox (Maestral)/journal"; }
+      #  ];
+      #};
     };
     keymaps = [
       # Terminal
@@ -71,8 +70,8 @@
     };
     clipboard.register = "unnamedplus";
     clipboard.providers.xclip.enable = true;
-    #autoCmd = [
-    #  { event = "FileType"; pattern = "nix"; command = "setlocal tabstop=2 shiftwidth=2"; }
-    #];
+    autoCmd = [
+      { event = "FileType"; pattern = "nix"; command = "setlocal tabstop=2 shiftwidth=2"; }
+    ];
   };
 }
