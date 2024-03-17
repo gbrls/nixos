@@ -99,6 +99,11 @@
                     "${mod}+j" = "focus down";
                     "${mod}+k" = "focus up";
                     "${mod}+l" = "focus right";
+
+                    "${mod}+Shift+1" = "move container to workspace 1";
+                    "${mod}+Shift+3" = "move container to workspace 2";
+                    "${mod}+Shift+h" = "move to workspace prev";
+                    "${mod}+Shift+l" = "move to workspace next";
                   };
                 };
               };
