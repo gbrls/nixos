@@ -6,7 +6,7 @@
 
     nixvim.url = "github:nix-community/nixvim";
     #nixvim.url = "github:nix-community/nixvim/nixos-23.11";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +28,6 @@
   inherit (self) outputs;
   system = "x86_64-linux";
   pkgs = nixpkgs.legacyPackages.${system};
-  #pkgs = nixpkgs-unstable.legacyPackages.${system};
   in {
 # NixOS configuration entrypoint
 # Available through 'nixos-rebuild --flake .#your-hostname'
