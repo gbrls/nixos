@@ -1,7 +1,8 @@
 {pkgs, ...}:
 {
   #programs.nixvim = {
-  programs.neovim = {
+  #programs.neovim = {
+  config = {
     enable = true;
     plugins = {
       treesitter.enable = true;
