@@ -56,7 +56,12 @@
                 #nixvim.homeManagerModules.nixvim
                 (import ./neovim.nix { pkgs = pkgs-unstable;  })
               ];
-              home.packages = [ ];
+              home.packages = [ 
+                inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
+                  pkgs = pkgs-unstable;
+                  module = ./neovim.nix;
+                }
+              ];
               programs.git = {
                 enable = true;
                 userName = "Gabriel Schneider";
