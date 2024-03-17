@@ -51,7 +51,7 @@
     xkbVariant = "";
 
     videoDrivers = ["nvidia"];
-    dpi = 240;
+    dpi = 210;
 
     desktopManager = { 
       xterm.enable = false;

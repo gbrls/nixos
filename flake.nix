@@ -47,7 +47,7 @@
             home-manager.users.gbrls = {
               imports = [
                 nixvim.homeManagerModules.nixvim
-                  (import ./vim.nix { inherit pkgs; })
+                (import ./vim.nix { inherit pkgs; })
               ];
               home.packages = [ ];
               programs.git = {
@@ -95,6 +95,10 @@
                   modifier = mod;
                   keybindings = nixpkgs.lib.mkOptionDefault {
                     "${mod}+d" = "exec ${pkgs.dmenu}/bin/dmenu_run";
+                    "${mod}+h" = "focus left";
+                    "${mod}+j" = "focus down";
+                    "${mod}+k" = "focus up";
+                    "${mod}+l" = "focus right";
                   };
                 };
               };
