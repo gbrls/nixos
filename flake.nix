@@ -47,7 +47,7 @@
             home-manager.users.gbrls = {
               imports = [
                 nixvim.homeManagerModules.nixvim
-                (import ./vim.nix { inherit pkgs; })
+                (import ./neovim.nix { inherit pkgs; })
               ];
               home.packages = [ ];
               programs.git = {
